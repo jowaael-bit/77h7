@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WARLORD H7</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#07090d;color:white;
+ font-family:Arial,sans-serif;min-height:100vh;
+}
+.login{
+ min-height:100vh;display:flex;align-items:center;
+ justify-content:center;padding:20px;
+ background:radial-gradient(circle at center,#24202a,#07090d 65%);
+}
+.login-box{
+ width:100%;max-width:390px;padding:40px 30px;
+ background:#11151d;border:1px solid #38313b;
+ border-radius:15px;text-align:center;
+ box-shadow:0 0 50px #b21e3520;
+}
+.login-box h1{letter-spacing:5px;font-size:28px}
+.login-box h1 span{color:#e52d49}
+.login-box p{color:#8c95a5;font-size:13px}
+input{
+ width:100%;padding:15px;margin-top:13px;
+ background:#080b11;border:1px solid #333b48;
+ border-radius:7px;color:white;outline:none;
+}
+input:focus{border-color:#e52d49}
+button{
+ width:100%;padding:15px;margin-top:20px;
+ background:linear-gradient(110deg,#8d142b,#e52d49);
+ border:0;border-radius:7px;color:white;
+ font-weight:bold;letter-spacing:3px;cursor:pointer;
+}
+#error{color:#ff647b;font-size:12px}
+.main{
+ display:none;min-height:100vh;position:relative;
+ align-items:center;justify-content:center;
+ flex-direction:column;overflow:hidden;
+ background:radial-gradient(ellipse at center,#26232b 0%,#0a0c11 55%,#050608 100%);
+}
+.main::before{
+ content:"";position:absolute;inset:0;
+ background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#ffffff05 4px);
+ pointer-events:none;
+}
+.logo{
+ width:min(65vw,370px);height:auto;
+ filter:drop-shadow(0 0 25px #c9234145);
+ animation:appear 1.5s ease;
+}
+.done{
+ font-size:clamp(65px,13vw,125px);
+ font-weight:1000;letter-spacing:15px;
+ margin-top:15px;
+ background:linear-gradient(180deg,#fff 5%,#aaa 35%,#fff 48%,#777 70%,#eee 90%);
+ -webkit-background-clip:text;
+ background-clip:text;color:transparent;
+ text-shadow:0 0 35px #d9274530;
+ animation:appear 2s ease;
+}
+.line{
+ width:180px;height:2px;
+ background:linear-gradient(90deg,transparent,#e52d49,transparent);
+ margin-top:22px;
+}
+.sub{
+ color:#777f8d;font-size:11px;
+ letter-spacing:7px;margin-top:18px;
+}
+@keyframes appear{
+ from{opacity:0;transform:translateY(25px) scale(.94)}
+ to{opacity:1;transform:translateY(0) scale(1)}
+}
+</style>
+</head>
+<body>
+
+<div class="login" id="login">
+ <div class="login-box">
+  <h1>WARLORD <span>H7</span></h1>
+  <p>SECURE ACCESS PORTAL</p>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="enter()">ACCESS SYSTEM</button>
+  <p id="error"></p>
+ </div>
+</div>
+
+<div class="main" id="main">
+ <img class="logo"
+ src="https://i.ibb.co/DfKYV9xK/Warlord-H7-Chrome-Emblem.png"
+ alt="Warlord H7 Logo">
+ <div class="done">DONE</div>
+ <div class="line"></div>
+ <div class="sub">WARLORD H7 SYSTEM</div>
+</div>
+
+<script>
+function enter(){
+ const u=document.getElementById('user').value;
+ const p=document.getElementById('pass').value;
+
+ if(u==='admin' && p==='1234'){
+  document.getElementById('login').style.display='none';
+  document.getElementById('main').style.display='flex';
+ }else{
+  document.getElementById('error').textContent='INVALID LOGIN DETAILS';
+ }
+}
+</script>
+</body>
+</html>
